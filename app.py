@@ -203,7 +203,6 @@ st.markdown(
 
 # 3. Assinatura da marca
 st.markdown(
-    "<p style='text-align: center; color: gray; font-size: 13px;'>NOME LEGAL"
-    " PARA O SITE | Metodologias Ativas na Saúde</p>",
+    "<p style='text-align: center; color: gray; font-size: 13px;'>"Ambinte de Aprendizagem Ativa | Metodologias Ativas na Saúde</p>",
     unsafe_allow_html=True,
 )
