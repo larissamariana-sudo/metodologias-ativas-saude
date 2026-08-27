@@ -256,13 +256,13 @@ elif menu == "9. Feedback da Aula":
     tab_fb1, tab_fb2, tab_fb3 = st.tabs(["FST1040", "FST7001", "FST2005"])
     with tab_fb1:
         st.subheader("Feedback - FST1040")
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FEEDBACK_1?transparentBackground=1", height=450, scrolling=True)
+        st.components.v1.iframe("https://forms.gle/VCU1iWpyXWK9fuSNA", height=450, scrolling=True)
     with tab_fb2:
         st.subheader("Feedback - FST7001")
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FEEDBACK_2?transparentBackground=1", height=450, scrolling=True)
+        st.components.v1.iframe("https://forms.gle/VCU1iWpyXWK9fuSNA", height=450, scrolling=True)
     with tab_fb3:
         st.subheader("Feedback - FST2005")
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FEEDBACK_3?transparentBackground=1", height=450, scrolling=True)
+        st.components.v1.iframe("https://forms.gle/VCU1iWpyXWK9fuSNA", height=450, scrolling=True)
 
 # --- RODAPÉ ---
 st.markdown("---")
