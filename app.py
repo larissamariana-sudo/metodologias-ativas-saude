@@ -101,7 +101,7 @@ if menu == "Apresentação":
       " da graduação em saúde."
   )
 
-  st.subheader("Bem-vindos à aula interativa!")
+  st.subheader("Bem-vindos à nossa sala interativa!")
   st.write(
       "Este espaço foi estruturado para dinamizar nossa discussão de hoje,"
       " permitindo a participação ativa, o levantamento de conceitos-chave e a"
