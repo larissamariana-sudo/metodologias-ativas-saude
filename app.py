@@ -33,12 +33,15 @@ elif menu == "1. Perguntas & Respostas (Q&A)":
 
 elif menu == "2. Nuvem de Ideias":
     st.header("☁️ Nuvem de Ideias / Brainstorming")
-    st.write("Compartilhe palavras-chave que resumem o conceito abordado.")
-    
-    # Sugestão: Ferramenta gratuita externa de nuvem colaborativa (ex: Mentimeter gratuito ou AnswerGarden)
-    # Ou você pode incorporar um mural colaborativo gratuito como o Padlet/Trello/Lingo.
-    st.markdown("Participe da nuvem de palavras interativa:")
-    st.components.v1.iframe("https://answergarden.ch/embed/SEU_ID_AQUI", height=500)
+    st.write("Digite palavras-chave que resumem o conceito abordado na discussão de hoje.")
+
+    # Código HTML/JS do AnswerGarden inserido via componente Streamlit
+    answergarden_codigo = """
+    <div style="width: 100%; height: 500px;">
+        <script type="text/javascript" src="https://answergarden.ch/5215672"></script>
+    </div>
+    """
+    st.components.v1.html(answergarden_codigo, height=520, scrolling=True)
 
 elif menu == "3. Feedback da Aula":
     st.header("📝 Avaliação de Reação (Feedback)")
