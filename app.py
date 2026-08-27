@@ -66,7 +66,7 @@ elif menu == "1. Perguntas & Respostas (Q&A)":
 
   # Insira o link do seu formulário Tally.so para perguntas
   st.components.v1.iframe(
-      "https://tally.so/embed/SEU_LINK_DO_TALLY?transparentBackground=1",
+      "https://tally.so/r/A7eGAB",
       height=500,
       scrolling=True,
   )
