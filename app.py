@@ -99,13 +99,13 @@ elif menu == "1. Perguntas & Respostas (Q&A)":
     tab_f1, tab_f2, tab_f3 = st.tabs(["FST1040", "FST7001", "FST2005"])
     with tab_f1:
         st.subheader("Q&A - FST1040")
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FST1040?transparentBackground=1", height=450, scrolling=True)
+        st.components.v1.iframe("https://tally.so/r/b5QEjE", height=450, scrolling=True)
     with tab_f2:
         st.subheader("Q&A - FST7001")
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FST7001?transparentBackground=1", height=450, scrolling=True)
+        st.components.v1.iframe("https://tally.so/r/A7eGAB", height=450, scrolling=True)
     with tab_f3:
         st.subheader("Q&A - FST2005")
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FST8004?transparentBackground=1", height=450, scrolling=True)
+        st.components.v1.iframe("https://tally.so/r/1AogkL", height=450, scrolling=True)
 
 elif menu == "2. Nuvem de Ideias":
     st.header("☁️ Nuvem de Ideias / Brainstorming por Disciplina")
