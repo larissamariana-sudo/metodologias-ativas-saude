@@ -72,15 +72,6 @@ menu = st.sidebar.selectbox(
     ],
 )
 
-# --- HTML PADRÃO PARA O ANSWERGARDEN ---
-answergarden_html = """
-<div style="display: flex; justify-content: center; width: 100%;">
-    <iframe src="https://answergarden.ch/embed/5215672" width="640px" height="400px" style="border: none;" scrolling="no" frameborder="0" title="AnswerGarden" allowTransparency="true">
-        <p><a href="https://answergarden.ch/5215672">Go to AnswerGarden</a></p>
-    </iframe>
-</div>
-"""
-
 # --- CONTEÚDO PRINCIPAL ---
 
 if menu == "Apresentação":
@@ -121,15 +112,41 @@ elif menu == "2. Nuvem de Ideias":
     st.write("Participe da dinâmica colaborativa respondendo à questão nortear da sua turma.")
     
     tab_n1, tab_n2, tab_n3 = st.tabs(["FST1040", "FST7001", "FST8004"])
+    
+    # Códigos AnswerGarden específicos para cada disciplina (você pode alterar os IDs conforme necessário)
+    answergarden_html_1 = """
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <iframe src="https://answergarden.ch/embed/5215672" width="640px" height="400px" style="border: none;" scrolling="no" frameborder="0" title="AnswerGarden FST1040" allowTransparency="true">
+            <p><a href="https://answergarden.ch/5215672">Go to AnswerGarden</a></p>
+        </iframe>
+    </div>
+    """
+    
+    answergarden_html_2 = """
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <iframe src="https://answergarden.ch/embed/5215672" width="640px" height="400px" style="border: none;" scrolling="no" frameborder="0" title="AnswerGarden FST7001" allowTransparency="true">
+            <p><a href="https://answergarden.ch/5215672">Go to AnswerGarden</a></p>
+        </iframe>
+    </div>
+    """
+    
+    answergarden_html_3 = """
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <iframe src="https://answergarden.ch/embed/5215672" width="640px" height="400px" style="border: none;" scrolling="no" frameborder="0" title="AnswerGarden FST8004" allowTransparency="true">
+            <p><a href="https://answergarden.ch/5215672">Go to AnswerGarden</a></p>
+        </iframe>
+    </div>
+    """
+
     with tab_n1:
         st.subheader("Nuvem de Palavras - FST1040")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        st.components.v1.html(answergarden_html_1, height=420, scrolling=False)
     with tab_n2:
         st.subheader("Nuvem de Palavras - FST7001")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        st.components.v1.html(answergarden_html_2, height=420, scrolling=False)
     with tab_n3:
         st.subheader("Nuvem de Palavras - FST8004")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        st.components.v1.html(answergarden_html_3, height=420, scrolling=False)
 
 elif menu == "3. Mentimeter":
     st.header("📊 Dinâmica Interativa - Mentimeter por Disciplina")
