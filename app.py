@@ -64,15 +64,12 @@ menu = st.sidebar.selectbox(
         "1. Perguntas & Respostas (Q&A)",
         "2. Nuvem de Ideias",
         "3. Feedback da Aula",
-        "📊 Mentimeter",
-        "📌 Padlet (Mural)",
+        "📊 Dosimetria",
+        "📌 Mural Colaborativo",
         "📝 Typeform",
-        "🎮 Kahoot / Quiz",
+        "🎮 Quiz",
         "📋 Google Forms",
         "📱 QR Code de Acesso",
-        "📚 Disciplina FST1040",
-        "📚 Disciplina FST7001",
-        "📚 Disciplina FST8004",
     ],
 )
 
@@ -151,19 +148,49 @@ elif menu == "📊 Mentimeter":
     st.write("Participe das enquetes e perguntas em tempo real.")
     # Insira o link de embed do seu Mentimeter
     st.components.v1.iframe("https://www.mentimeter.com/embed/SEU_CODIGO_MENTIMETER", height=550, scrolling=True)
-
+    with tab_n1:
+        st.subheader("Mentimeter - FST1040")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n2:
+        st.subheader("Mentimeter - FST7001")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n3:
+        st.subheader("Mentimeter - FST8004")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
 elif menu == "📌 Padlet (Mural)":
     st.header("📌 Mural Colaborativo - Padlet")
     st.write("Compartilhe post-its, ideias e analise os materiais fixados no mural.")
     # Insira o link de embed do seu Padlet
     st.components.v1.html('<iframe src="https://padlet.com/embed/SEU_ID_PADLET" width="100%" height="550px" style="border:none; border-radius:8px;"></iframe>', height=570, scrolling=True)
-
+    with tab_n1:
+        st.subheader("Mural Colaborativo - Padlet - FST1040")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n2:
+        st.subheader("Mural Colaborativo - Padlet - FST7001")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n3:
+        st.subheader("Mural Colaborativo - Padlet - FST8004")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
 elif menu == "📝 Typeform":
     st.header("📝 Formulário Dinâmico - Typeform")
     st.write("Responda à avaliação ou atividade proposta.")
     # Insira o link do seu Typeform
     st.components.v1.iframe("https://form.typeform.com/to/SEU_ID_TYPEFORM", height=550, scrolling=True)
-
+    with tab_n1:
+        st.subheader("Formulário Dinâmico - Typeform - FST1040")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n2:
+        st.subheader("Formulário Dinâmico - Typeform - FST7001")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n3:
+        st.subheader("Formulário Dinâmico - Typeform - FST8004")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
 elif menu == "🎮 Kahoot / Quiz":
     st.header("🎮 Quiz Interativo - Kahoot")
     st.write("Preparem-se para o desafio gamificado!")
@@ -171,13 +198,33 @@ elif menu == "🎮 Kahoot / Quiz":
     st.markdown("[Acessar Kahoot! (kahoot.it)](https://kahoot.it)", unsafe_allow_html=True)
     # Opcional: incorporação de iframe se houver visualização web direta
     st.components.v1.iframe("https://kahoot.it/", height=600, scrolling=True)
-
+    with tab_n1:
+        st.subheader("Quiz Interativo - Kahoot - FST1040")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n2:
+        st.subheader("Quiz Interativo - Kahoot - FST7001")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n3:
+        st.subheader("Quiz Interativo - Kahoot - FST8004")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
 elif menu == "📋 Google Forms":
     st.header("📋 Avaliação / Coleta - Google Forms")
     st.write("Preencha o formulário institucional abaixo:")
     # Insira o link de incorporação do Google Forms
     st.components.v1.iframe("https://docs.google.com/forms/d/e/SEU_LINK_GOOGLE_FORMS/viewform?embedded=true", height=600, scrolling=True)
-
+    with tab_n1:
+        st.subheader("Avaliação / Coleta - Google Forms - FST1040")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n2:
+        st.subheader("Avaliação / Coleta - Google Forms - FST7001")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n3:
+        st.subheader("Avaliação / Coleta - Google Forms - FST8004")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
 elif menu == "📱 QR Code de Acesso":
     st.header("📱 QR Code para Acesso Rápido via Celular")
     st.write("Aponte a câmera do seu smartphone para acessar o site ou a atividade atual instantaneamente.")
@@ -189,43 +236,17 @@ elif menu == "📱 QR Code de Acesso":
             st.image("qrcode.png", width=350, caption="Escaneie para acessar o portal")
         except Exception:
             st.warning("⚠️ Coloque uma imagem chamada `qrcode.png` na pasta do seu repositório GitHub para exibi-la aqui.")
-
-elif menu == "📚 Disciplina FST1040":
-    st.header("📚 Disciplina: FST1040")
-    st.write("Painel centralizado com todas as atividades e interações específicas da disciplina FST1040.")
-    st.info("Utilize as abas superiores para navegar entre os recursos desta disciplina.")
-    
-    t1, t2, t3 = st.tabs(["💬 Perguntas", "☁️ Nuvem de Ideias", "📋 Atividade Prática"])
-    with t1:
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FST1040?transparentBackground=1", height=400, scrolling=True)
-    with t2:
-        st.components.v1.html(answergarden_html, height=400, scrolling=False)
-    with t3:
-        st.write("Espaço reservado para materiais ou formulários complementares da FST1040.")
-
-elif menu == "📚 Disciplina FST7001":
-    st.header("📚 Disciplina: FST7001")
-    st.write("Painel centralizado com todas as atividades e interações específicas da disciplina FST7001.")
-    
-    t1, t2, t3 = st.tabs(["💬 Perguntas", "☁️ Nuvem de Ideias", "📋 Atividade Prática"])
-    with t1:
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FST7001?transparentBackground=1", height=400, scrolling=True)
-    with t2:
-        st.components.v1.html(answergarden_html, height=400, scrolling=False)
-    with t3:
-        st.write("Espaço reservado para materiais ou formulários complementares da FST7001.")
-
-elif menu == "📚 Disciplina FST8004":
-    st.header("📚 Disciplina: FST8004")
-    st.write("Painel centralizado com todas as atividades e interações específicas da disciplina FST8004.")
-    
-    t1, t2, t3 = st.tabs(["💬 Perguntas", "☁️ Nuvem de Ideias", "📋 Atividade Prática"])
-    with t1:
-        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FST8004?transparentBackground=1", height=400, scrolling=True)
-    with t2:
-        st.components.v1.html(answergarden_html, height=400, scrolling=False)
-    with t3:
-        st.write("Espaço reservado para materiais ou formulários complementares da FST8004.")
+    with tab_n1:
+        st.subheader("QR Code - FST1040")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n2:
+        st.subheader("QR Code - FST7001")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        
+    with tab_n3:
+        st.subheader("QR Code - FST8004")
+        st.components.v1.html(answergarden_html, height=420, scrolling=False)
 
 # --- RODAPÉ ---
 st.markdown("---")
