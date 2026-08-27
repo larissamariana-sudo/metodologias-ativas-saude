@@ -28,6 +28,60 @@ st.sidebar.info(
 
 st.sidebar.markdown("---")
 
+# --- FUNÇÃO DE CACHE PARA CARREGAR PLANILHAS RAPIDAMENTE ---
+@st.cache_data(ttl=600)
+def carregar_dados_planilha(link_planilha):
+    """Carrega os dados da planilha e guarda em cache por 10 minutos para evitar lentidão."""
+    try:
+        if "docs.google.com" in link_planilha:
+            id_plan = link_planilha.split("/d/")[1].split("/")[0]
+            url_csv = f"https://docs.google.com/spreadsheets/d/{id_plan}/export?format=csv"
+            df = pd.read_csv(url_csv)
+            df.columns = df.columns.str.strip().str.lower()
+            return df
+    except Exception:
+        return None
+    return None
+    
+# --- ESTILIZAÇÃO CSS PROFISSIONAL ---
+st.markdown("""
+    <style>
+    /* Fundo geral da página mais limpo e profissional */
+    .stApp {
+        background-color: #f8f9fa;
+    }
+    .element-container {
+        color: #333333;
+    }
+    /* Estilo para a caixa de citação acadêmica no rodapé */
+    .footer-box {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 13px;
+        color: #555555;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# --- FUNÇÕES DE ESTILO (Imagem menor, centralizada e aplicada em todas as abas) ---
+def mostrar_cabecalho(foto="aaa.jpg"):
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.image(foto, width=600)
+    
+    st.markdown("""
+        <div style='background-color: #004225; padding: 25px; border-radius: 10px; text-align: center; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);'>
+            <h1 style='margin:0; font-size: 26px;'>Ambiente de Aprendizagem Ativa</h1>
+        </div>
+    """, unsafe_allow_html=True)
+    st.write("")
+
+
 # Menu Lateral para Navegação
 menu = st.sidebar.selectbox(
     "Navegue pelas Atividades:",
@@ -41,7 +95,7 @@ menu = st.sidebar.selectbox(
 
 # --- CONTEÚDO PRINCIPAL ---
 if menu == "Apresentação":
-  st.header("🩺 Ambiente Interativo de Aprendizagem")
+  st.header("🩺 Ambiente de Aprendizagem Ativa")
   st.markdown(
       "Ferramenta de apoio pedagógico para metodologias ativas com estudantes"
       " da graduação em saúde."
