@@ -38,7 +38,7 @@ elif menu == "2. Nuvem de Ideias":
     # Código HTML/JS do AnswerGarden inserido via componente Streamlit
     answergarden_codigo = """
     <div style="width: 100%; height: 500px;">
-        <script type="text/javascript" src="https://answergarden.ch/embed/5215672"></script>
+        <script type="text/javascript" src="https://answergarden.ch/embed/<iframe src="https://answergarden.ch/embed/5215672" width="640px" height="400px" style="border: none;" scrolling="no" frameborder="0" title="AnswerGarden" allowTransparency="true"><p><a href="https://answergarden.ch/5215672">Go to AnswerGarden</a></p></iframe>"></script>
     </div>
     """
     st.components.v1.html(answergarden_codigo, height=520, scrolling=True)
