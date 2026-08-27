@@ -15,12 +15,12 @@ ano_atual = datetime.now().year
 st.sidebar.markdown("---")
 
 # Correção de reconhecimento de imagem na barra lateral
-# Dica: Certifique-se de que o arquivo 'logo.png' ou 'aaa.jpg' está na mesma pasta no GitHub
+# Dica: Certifique-se de que o arquivo 'logo.png' ou 'sala.jpg' está na mesma pasta no GitHub
 try:
-    st.sidebar.image("logo.png", width=150, use_container_width=True)
+    st.sidebar.image("sala.png", width=150, use_container_width=True)
 except Exception:
     try:
-        st.sidebar.image("aaa.jpg", width=150, use_container_width=True)
+        st.sidebar.image("sala.jpg", width=150, use_container_width=True)
     except Exception:
         st.sidebar.info("📌 **Logo:** Adicione sua imagem na pasta do repositório.")
 
