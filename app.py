@@ -157,7 +157,7 @@ elif menu == "3. Mentimeter":
         st.components.v1.iframe("https://www.mentimeter.com/embed/SEU_CODIGO_MENTIMETER_1", height=450, scrolling=True)
     with tab_m2:
         st.subheader("Mentimeter - FST7001")
-        st.components.v1.iframe("https://www.mentimeter.com/embed/SEU_CODIGO_MENTIMETER_2", height=450, scrolling=True)
+        st.components.v1.iframe("https://www.menti.com/al2suentxx3r", height=450, scrolling=True)
     with tab_m3:
         st.subheader("Mentimeter - FST2005")
         st.components.v1.iframe("https://www.mentimeter.com/embed/SEU_CODIGO_MENTIMETER_3", height=450, scrolling=True)
