@@ -14,8 +14,6 @@ ano_atual = datetime.now().year
 # --- BARRA LATERAL (LOGO E APRESENTAÇÃO) ---
 st.sidebar.markdown("---")
 
-# Correção de reconhecimento de imagem na barra lateral
-# Dica: Certifique-se de que o arquivo 'logo.png' ou 'sala.jpg' está na mesma pasta no GitHub
 try:
     st.sidebar.image("sala.png", width=150, use_container_width=True)
 except Exception:
@@ -64,7 +62,7 @@ menu = st.sidebar.selectbox(
         "1. Perguntas & Respostas (Q&A)",
         "2. Nuvem de Ideias",
         "3. Feedback da Aula",
-        "📊 Dosimetria",
+        "📊 Dosimetria / Mentimeter",
         "📌 Mural Colaborativo",
         "📝 Typeform",
         "🎮 Quiz",
@@ -76,20 +74,24 @@ menu = st.sidebar.selectbox(
 # --- CONTEÚDO PRINCIPAL ---
 
 if menu == "Apresentação":
+    # 1. Logo principal no topo da página
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        try:
+            st.image("aaa.jpg", width=500, use_container_width=True)
+        except Exception:
+            st.info("💡 *Dica: Envie uma imagem chamada 'aaa.jpg' para o repositório do GitHub para exibi-la no topo.*")
+
+    st.markdown("---")
     st.header("🩺 Ambiente de Aprendizagem Ativa")
     st.markdown("Ferramenta de apoio pedagógico para metodologias ativas com estudantes da graduação em saúde.")
-
-    # Exibição segura da imagem principal na apresentação
-    try:
-        st.image("aaa.jpg", width=600)
-    except Exception:
-        st.info("💡 *Dica: Envie uma imagem chamada 'aaa.jpg' para o repositório do GitHub para exibi-la aqui.*")
 
     st.subheader("Bem-vindos à nossa sala interativa!")
     st.write(
         "Este espaço foi estruturado para dinamizar nossa discussão de hoje, "
         "permitindo a participação ativa, o levantamento de conceitos-chave e a "
-        "avaliação contínua do processo de ensino-aprendizagem."
+        "avaliação contínua do processo de ensino-aprendizagem nas disciplinas "
+        "**FST1040**, **FST7001** e **FST8004**."
     )
     st.info("💡 **Dica para o Professor:** Utilize o menu lateral para alternar entre as ferramentas e disciplinas durante a sessão.")
 
@@ -117,7 +119,6 @@ elif menu == "2. Nuvem de Ideias":
     
     tab_n1, tab_n2, tab_n3 = st.tabs(["FST1040", "FST7001", "FST8004"])
     
-    # Exemplo com o AnswerGarden fornecido (você pode duplicar ou ajustar os IDs se tiver um para cada)
     answergarden_html = """
     <div style="display: flex; justify-content: center; width: 100%;">
         <iframe src="https://answergarden.ch/embed/5215672" width="640px" height="400px" style="border: none;" scrolling="no" frameborder="0" title="AnswerGarden" allowTransparency="true">
@@ -141,112 +142,132 @@ elif menu == "2. Nuvem de Ideias":
 elif menu == "3. Feedback da Aula":
     st.header("📝 Avaliação de Reação (Feedback)")
     st.write("Sua opinião é fundamental para avaliarmos a dinâmica e melhorarmos as próximas atividades.")
-    st.components.v1.iframe("https://tally.so/embed/SEU_LINK_DE_FEEDBACK_DO_TALLY?transparentBackground=1", height=500, scrolling=True)
+    
+    tab_f1, tab_f2, tab_f3 = st.tabs(["FST1040", "FST7001", "FST8004"])
+    
+    with tab_f1:
+        st.subheader("Feedback - FST1040")
+        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FEEDBACK_FST1040?transparentBackground=1", height=450, scrolling=True)
+    with tab_f2:
+        st.subheader("Feedback - FST7001")
+        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FEEDBACK_FST7001?transparentBackground=1", height=450, scrolling=True)
+    with tab_f3:
+        st.subheader("Feedback - FST8004")
+        st.components.v1.iframe("https://tally.so/embed/SEU_LINK_FEEDBACK_FST8004?transparentBackground=1", height=450, scrolling=True)
 
-elif menu == "📊 Mentimeter":
-    st.header("📊 Dinâmica Interativa - Mentimeter")
+elif menu == "📊 Dosimetria / Mentimeter":
+    st.header("📊 Dinâmica Interativa - Mentimeter / Dosimetria")
     st.write("Participe das enquetes e perguntas em tempo real.")
-    # Insira o link de embed do seu Mentimeter
-    st.components.v1.iframe("https://www.mentimeter.com/embed/SEU_CODIGO_MENTIMETER", height=550, scrolling=True)
-    with tab_n1:
+    
+    tab_m1, tab_m2, tab_m3 = st.tabs(["FST1040", "FST7001", "FST8004"])
+    
+    with tab_m1:
         st.subheader("Mentimeter - FST1040")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n2:
+        st.components.v1.iframe("https://www.mentimeter.com/embed/SEU_CODIGO_MENTIMETER_1", height=450, scrolling=True)
+    with tab_m2:
         st.subheader("Mentimeter - FST7001")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n3:
+        st.components.v1.iframe("https://www.mentimeter.com/embed/SEU_CODIGO_MENTIMETER_2", height=450, scrolling=True)
+    with tab_m3:
         st.subheader("Mentimeter - FST8004")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-elif menu == "📌 Padlet (Mural)":
+        st.components.v1.iframe("https://www.mentimeter.com/embed/SEU_CODIGO_MENTIMETER_3", height=450, scrolling=True)
+
+elif menu == "📌 Mural Colaborativo":
     st.header("📌 Mural Colaborativo - Padlet")
     st.write("Compartilhe post-its, ideias e analise os materiais fixados no mural.")
-    # Insira o link de embed do seu Padlet
-    st.components.v1.html('<iframe src="https://padlet.com/embed/SEU_ID_PADLET" width="100%" height="550px" style="border:none; border-radius:8px;"></iframe>', height=570, scrolling=True)
-    with tab_n1:
-        st.subheader("Mural Colaborativo - Padlet - FST1040")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n2:
-        st.subheader("Mural Colaborativo - Padlet - FST7001")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n3:
-        st.subheader("Mural Colaborativo - Padlet - FST8004")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+    
+    tab_p1, tab_p2, tab_p3 = st.tabs(["FST1040", "FST7001", "FST8004"])
+    
+    with tab_p1:
+        st.subheader("Mural - FST1040")
+        st.components.v1.html('<iframe src="https://padlet.com/embed/SEU_ID_PADLET_1" width="100%" height="450px" style="border:none; border-radius:8px;"></iframe>', height=470, scrolling=True)
+    with tab_p2:
+        st.subheader("Mural - FST7001")
+        st.components.v1.html('<iframe src="https://padlet.com/embed/SEU_ID_PADLET_2" width="100%" height="450px" style="border:none; border-radius:8px;"></iframe>', height=470, scrolling=True)
+    with tab_p3:
+        st.subheader("Mural - FST8004")
+        st.components.v1.html('<iframe src="https://padlet.com/embed/SEU_ID_PADLET_3" width="100%" height="450px" style="border:none; border-radius:8px;"></iframe>', height=470, scrolling=True)
+
 elif menu == "📝 Typeform":
     st.header("📝 Formulário Dinâmico - Typeform")
     st.write("Responda à avaliação ou atividade proposta.")
-    # Insira o link do seu Typeform
-    st.components.v1.iframe("https://form.typeform.com/to/SEU_ID_TYPEFORM", height=550, scrolling=True)
-    with tab_n1:
-        st.subheader("Formulário Dinâmico - Typeform - FST1040")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n2:
-        st.subheader("Formulário Dinâmico - Typeform - FST7001")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n3:
-        st.subheader("Formulário Dinâmico - Typeform - FST8004")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-elif menu == "🎮 Kahoot / Quiz":
+    
+    tab_t1, tab_t2, tab_t3 = st.tabs(["FST1040", "FST7001", "FST8004"])
+    
+    with tab_t1:
+        st.subheader("Typeform - FST1040")
+        st.components.v1.iframe("https://form.typeform.com/to/SEU_ID_TYPEFORM_1", height=450, scrolling=True)
+    with tab_t2:
+        st.subheader("Typeform - FST7001")
+        st.components.v1.iframe("https://form.typeform.com/to/SEU_ID_TYPEFORM_2", height=450, scrolling=True)
+    with tab_t3:
+        st.subheader("Typeform - FST8004")
+        st.components.v1.iframe("https://form.typeform.com/to/SEU_ID_TYPEFORM_3", height=450, scrolling=True)
+
+elif menu == "🎮 Quiz":
     st.header("🎮 Quiz Interativo - Kahoot")
     st.write("Preparem-se para o desafio gamificado!")
-    st.info("👉 Acesse o link abaixo ou insira o PIN fornecido pelo professor no projetor.")
-    st.markdown("[Acessar Kahoot! (kahoot.it)](https://kahoot.it)", unsafe_allow_html=True)
-    # Opcional: incorporação de iframe se houver visualização web direta
-    st.components.v1.iframe("https://kahoot.it/", height=600, scrolling=True)
-    with tab_n1:
-        st.subheader("Quiz Interativo - Kahoot - FST1040")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n2:
-        st.subheader("Quiz Interativo - Kahoot - FST7001")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n3:
-        st.subheader("Quiz Interativo - Kahoot - FST8004")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+    
+    tab_k1, tab_k2, tab_k3 = st.tabs(["FST1040", "FST7001", "FST8004"])
+    
+    with tab_k1:
+        st.subheader("Kahoot - FST1040")
+        st.markdown("[Acessar Kahoot! (kahoot.it)](https://kahoot.it)", unsafe_allow_html=True)
+        st.components.v1.iframe("https://kahoot.it/", height=450, scrolling=True)
+    with tab_k2:
+        st.subheader("Kahoot - FST7001")
+        st.markdown("[Acessar Kahoot! (kahoot.it)](https://kahoot.it)", unsafe_allow_html=True)
+        st.components.v1.iframe("https://kahoot.it/", height=450, scrolling=True)
+    with tab_k3:
+        st.subheader("Kahoot - FST8004")
+        st.markdown("[Acessar Kahoot! (kahoot.it)](https://kahoot.it)", unsafe_allow_html=True)
+        st.components.v1.iframe("https://kahoot.it/", height=450, scrolling=True)
+
 elif menu == "📋 Google Forms":
     st.header("📋 Avaliação / Coleta - Google Forms")
     st.write("Preencha o formulário institucional abaixo:")
-    # Insira o link de incorporação do Google Forms
-    st.components.v1.iframe("https://docs.google.com/forms/d/e/SEU_LINK_GOOGLE_FORMS/viewform?embedded=true", height=600, scrolling=True)
-    with tab_n1:
-        st.subheader("Avaliação / Coleta - Google Forms - FST1040")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n2:
-        st.subheader("Avaliação / Coleta - Google Forms - FST7001")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n3:
-        st.subheader("Avaliação / Coleta - Google Forms - FST8004")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+    
+    tab_g1, tab_g2, tab_g3 = st.tabs(["FST1040", "FST7001", "FST8004"])
+    
+    with tab_g1:
+        st.subheader("Google Forms - FST1040")
+        st.components.v1.iframe("https://docs.google.com/forms/d/e/SEU_LINK_GOOGLE_FORMS_1/viewform?embedded=true", height=450, scrolling=True)
+    with tab_g2:
+        st.subheader("Google Forms - FST7001")
+        st.components.v1.iframe("https://docs.google.com/forms/d/e/SEU_LINK_GOOGLE_FORMS_2/viewform?embedded=true", height=450, scrolling=True)
+    with tab_g3:
+        st.subheader("Google Forms - FST8004")
+        st.components.v1.iframe("https://docs.google.com/forms/d/e/SEU_LINK_GOOGLE_FORMS_3/viewform?embedded=true", height=450, scrolling=True)
+
 elif menu == "📱 QR Code de Acesso":
     st.header("📱 QR Code para Acesso Rápido via Celular")
     st.write("Aponte a câmera do seu smartphone para acessar o site ou a atividade atual instantaneamente.")
     
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        # Substitua 'qrcode.png' pelo arquivo de imagem do seu QR code enviado ao GitHub
-        try:
-            st.image("qrcode.png", width=350, caption="Escaneie para acessar o portal")
-        except Exception:
-            st.warning("⚠️ Coloque uma imagem chamada `qrcode.png` na pasta do seu repositório GitHub para exibi-la aqui.")
-    with tab_n1:
+    tab_q1, tab_q2, tab_q3 = st.tabs(["FST1040", "FST7001", "FST8004"])
+    
+    with tab_q1:
         st.subheader("QR Code - FST1040")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n2:
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            try:
+                st.image("qrcode_fst1040.png", width=300, caption="QR Code - FST1040")
+            except Exception:
+                st.warning("⚠️ Coloque uma imagem chamada `qrcode_fst1040.png` na pasta do GitHub.")
+    with tab_q2:
         st.subheader("QR Code - FST7001")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
-        
-    with tab_n3:
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            try:
+                st.image("qrcode_fst7001.png", width=300, caption="QR Code - FST7001")
+            except Exception:
+                st.warning("⚠️ Coloque uma imagem chamada `qrcode_fst7001.png` na pasta do GitHub.")
+    with tab_q3:
         st.subheader("QR Code - FST8004")
-        st.components.v1.html(answergarden_html, height=420, scrolling=False)
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            try:
+                st.image("qrcode_fst8004.png", width=300, caption="QR Code - FST8004")
+            except Exception:
+                st.warning("⚠️ Coloque uma imagem chamada `qrcode_fst8004.png` na pasta do GitHub.")
 
 # --- RODAPÉ ---
 st.markdown("---")
