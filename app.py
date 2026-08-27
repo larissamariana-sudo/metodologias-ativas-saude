@@ -12,7 +12,7 @@ ano_atual = datetime.now().year
 # --- BARRA LATERAL (LOGO E APRESENTAÇÃO) ---
 st.sidebar.markdown("---")
 # Espaço para exibir a logo (você pode subir um arquivo PNG/JPG no GitHub na mesma pasta e colocar o nome aqui, ou usar URL)
-# Exemplo: st.sidebar.image("logo.png", width=150)
+# Exemplo: st.sidebar.image("sala.jpg", width=150)
 st.sidebar.image(
     "https://via.placeholder.com/150",
     caption="Sua Logo Aqui",
